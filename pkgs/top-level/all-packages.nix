@@ -35928,6 +35928,26 @@ with pkgs;
 
   fsg = callPackage ../games/fsg { };
 
+  inherit (callPackage ../games/fteqw { }) fteqw;
+
+  fteqw-gl = (callPackage ../games/fteqw {
+    withSDL = false;
+    withOpenGL = true;
+    withServer = false;
+  }).fteqw;
+
+  fteqw-sv = (callPackage ../games/fteqw {
+    withSDL = false;
+    withOpenGL = false;
+    withServer = true;
+  }).fteqw;
+
+  fteqw-sdl = (callPackage ../games/fteqw {
+    withSDL = true;
+    withOpenGL = true;
+    withServer = false;
+  }).fteqw;
+
   galaxis = callPackage ../games/galaxis { };
 
   gambatte = callPackage ../games/gambatte { };
